@@ -90,6 +90,8 @@ print(f"Recovered text: {text_recovered}")
 
 
 ```
+
+
 ## How efficient is this compression algorithm?
 To find out this, we will compare how much space a .txt with 1 million characters takes up, a compressed file with 1 million characters, and an image with all the text compressed using my method.
 
@@ -143,5 +145,48 @@ random_text = ''.join(random.choices(string.ascii_lowercase + string.ascii_upper
 
 # Generate the compressed image and save it
 generate_compressed_image(random_text, width=100, filename="compressed_image.png")
+
+```
+
+### Here is the code for this comparison to compress 1 million random characters using a conventional compression method
+```
+import random
+import string
+import zlib
+
+# Generate 1 million random characters
+random_chars = ''.join(random.choices(string.ascii_letters + string.digits + string.punctuation, k=1000000))
+
+# Compress the random characters
+compressed_data = zlib.compress(random_chars.encode())
+
+# Save the compressed file
+file_path = '/content/compressed_data.bin'
+with open(file_path, 'wb') as f:
+    f.write(compressed_data)
+
+file_path
+
+```
+
+### Here is the code for this comparison that gives a txt with 1 million random characters
+```
+import random
+import string
+
+# Function to generate a string of 1 million random characters
+def generate_characters(num_characters):
+    return ''.join(random.choices(string.ascii_letters + string.digits + string.punctuation, k=num_characters))
+
+# Create the 1 million characters
+content = generate_characters(1000000)
+
+# Save the 1 million characters in a .txt file
+file_path = "/content/file.txt"
+with open(file_path, "w") as file:
+    file.write(content)
+
+# Print the file path so you can download it
+print(f"Text file created: {file_path}")
 
 ```
