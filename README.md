@@ -93,7 +93,7 @@ print(f"Recovered text: {text_recovered}")
 ## How efficient is this compression algorithm?
 To find out this, we will compare how much space a .txt with 1 million characters takes up, a compressed file with 1 million characters, and an image with all the text compressed using my method.
 
-### Aca el codigo para esta comparacion para comprimir 1 millon de caracteres aleatorios mediante CM (Compresor Matrix)
+### Here the code for this comparison to compress 1 million random characters using CM (Compresor Matrix)
 ```
 import numpy as np
 import matplotlib.pyplot as plt
